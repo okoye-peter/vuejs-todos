@@ -6,7 +6,6 @@ import todos from "./modules/todos";
 Vue.use(Vuex)
 
 // create a store
-
 export default new Vuex.Store({
     modules: {
      todos   

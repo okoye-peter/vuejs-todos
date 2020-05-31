@@ -13,7 +13,7 @@
             </span>
         </div>
         <div class="todos">
-            <div @dblclick="onDblClick(todo)" class="todo" v-for="todo in allTodos" :key="todo.id">
+            <div @dblclick="onDblClick(todo)" class="todo" v-bind:class="{'is-complete': todo.completed}" v-for="todo in allTodos" :key="todo.id">
                 {{todo.title}}
                 <i class="fas fa-trash-alt" @click="deleteTodo(todo.id)"></i>
             </div>
@@ -35,9 +35,7 @@ export default {
                 title: todo.title,
                 completed: !todo.completed
             };
-
             this.updateTodo(updTodo);
-
         }
     },
 
@@ -90,6 +88,11 @@ export default {
         width: 20px;
         height: 10px;
         background: #41b883;
+    }
+
+    .is-complete {
+        background-color: #35495e;
+        color: #fff;
     }
 
     @media (max-width: 500px) {
